@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Inde & France — India France Relations</title>
+  <title>India & France — India France Relations</title>
   <style>
 
     /* ── Reset ── */
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #ffffff;
-      color: #1a1a1a;
+      background: #f6f3f4;
+      color: #0f0f0f;
     }
 
     /* ── Navigation ── */
@@ -216,9 +216,32 @@
       .video-teaser { margin: 0 20px 20px; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
-
+  .fr { display: none; }
+  .en { display: inline; }
+  .lang-active {
+  transform: scale(1.1);
+  box-shadow: 0 0 0 3px #FF9933 !important;
+  }
   </style>
 </head>
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.en').forEach(el => {
+      el.style.display = lang === 'en' ? 'inline' : 'none';
+    });
+    document.querySelectorAll('.fr').forEach(el => {
+      el.style.display = lang === 'fr' ? 'inline' : 'none';
+    });
+    document.getElementById('flag-india').classList.toggle('lang-active', lang === 'en');
+    document.getElementById('flag-france').classList.toggle('lang-active', lang === 'fr');
+    localStorage.setItem('lang', lang);
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    const saved = localStorage.getItem('lang') || 'en';
+    setLang(saved);
+  });
+</script>
 <body>
   <div id="preloader" style="position:fixed;top:0;left:0;width:100%;height:100%;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:9999;">
   <div style="display:flex;gap:0;width:120px;height:120px;border-radius:50%;overflow:hidden;margin-bottom:16px">
@@ -247,15 +270,15 @@
     <div class="logo">
       <span class="ind">Inde</span> &amp; <span class="fra">France</span>
     </div>
-    <ul class="nav-links">
-      <li><a href="history.html">Histoire</a></li>
-      <li><a href="trade.html">Commerce</a></li>
-      <li><a href="culture.html">Culture</a></li>
-      <li><a href="defence.html">Défense</a></li>
-      <li><a href="technology.html">Technologie</a></li>
-      <li><a href="education.html">Éducation</a></li>
-      <li><a href="future.html">Avenir</a></li>
-    </ul>
+   <ul class="nav-links">
+  <li><a href="history.html"><span class="en">History</span><span class="fr">Histoire</span></a></li>
+  <li><a href="trade.html"><span class="en">Trade</span><span class="fr">Commerce</span></a></li>
+  <li><a href="culture.html"><span class="en">Culture</span><span class="fr">Culture</span></a></li>
+  <li><a href="defence.html"><span class="en">Defence</span><span class="fr">Défense</span></a></li>
+  <li><a href="technology.html"><span class="en">Technology</span><span class="fr">Technologie</span></a></li>
+  <li><a href="education.html"><span class="en">Education</span><span class="fr">Éducation</span></a></li>
+  <li><a href="future.html"><span class="en">Future</span><span class="fr">Avenir</span></a></li>
+</ul>
   </nav>
   <div style="height:3px;display:flex">
   <div style="flex:1;background:#002395"></div>
@@ -265,81 +288,142 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="flags">
-  <img src="https://flagcdn.com/w160/in.png" alt="India Flag" style="width:120px; height:80px; border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); object-fit:cover;">
-  <span style="font-size:28px; color:#ccc;">✕</span>
-  <img src="https://flagcdn.com/w160/fr.png" alt="France Flag" style="width:120px; height:80px; border-radius:8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); object-fit:cover;">
+   <div class="flags">
+  <div style="text-align:center">
+    <img src="https://flagcdn.com/w160/in.png" alt="India Flag" id="flag-india"
+      onclick="setLang('en')"
+      style="width:120px;height:80px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);object-fit:cover;cursor:pointer;transition:transform 0.2s">
+    <p style="font-size:11px;color:#888;margin-top:6px">English</p>
+  </div>
+  <span style="font-size:28px;margin-top:20px ; color:#ccc">✕</span>
+  <div style="text-align:center">
+    <img src="https://flagcdn.com/w160/fr.png" alt="France Flag" id="flag-france"
+      onclick="setLang('fr')"
+      style="width:120px;height:80px;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,0.15);object-fit:cover;cursor:pointer;transition:transform 0.2s">
+    <p style="font-size:11px;color:#888;margin-top:6px">Français</p>
+  </div>
 </div>
-    <h1>Deux nations. Une <em> amitié</em> extraordinaire.</h1>
-    <p>Explore the rich history, culture, trade, and future of the India–France Relationship </p>
+   <h1>
+  <span class="en">Two nations. One <em>extraordinary</em> friendship.</span>
+  <span class="fr">Deux nations. Une amitié <em>extraordinaire</em>.</span>
+</h1>
+<p>
+  <span class="en">Explore the rich history, culture, trade, and future of the India–France relationship — explained by students, for everyone.</span>
+  <span class="fr">Explorez la riche histoire, la culture, le commerce et l'avenir de la relation Inde–France — expliqués par des étudiants, pour tous.</span>
+</p>
     <div class="hero-btns">
-      <a href="history.html" class="btn-primary">Explorer des sujets →</a>
-      <a href="#videos" class="btn-secondary">Regarder des vidéos</a>
+      <a href="history.html" class="btn-primary">
+        <span class="en">Explore the Topics →</span><span class="fr">Explorer des sujets →</span>
+      </a>
+      
     </div>
   </section>
 
   <!-- Stats -->
   <div class="stats">
-    <div class="stat">
-      <div class="stat-num">75+</div>
-      <div class="stat-lbl">Years of diplomatic ties</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">₹8,000 Cr</div>
-      <div class="stat-lbl">Annual bilateral trade</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">7</div>
-      <div class="stat-lbl">Topics explored</div>
+  <div class="stat">
+    <div class="stat-num">75+</div>
+    <div class="stat-lbl">
+      <span class="en">Years of diplomatic ties</span>
+      <span class="fr">Années de liens diplomatiques</span>
     </div>
   </div>
+  <div class="stat">
+    <div class="stat-num">₹8,000 Cr</div>
+    <div class="stat-lbl">
+      <span class="en">Annual bilateral trade</span>
+      <span class="fr">Commerce bilatéral annuel</span>
+    </div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">7</div>
+    <div class="stat-lbl">
+      <span class="en">Topics explored</span>
+      <span class="fr">Sujets explorés</span>
+    </div>
+  </div>
+</div>
 
   <!-- Topic Cards -->
-  <div class="section-title">Explore topics</div>
-  <div class="cards">
+ <div class="cards">
     <a href="history.html" class="card">
       <div class="card-icon" style="background:#FFF3E0">🏛️</div>
-      <h3>Histoire</h3>
-      <p>From Pondicherry to independence — trace 300 years of shared story.</p>
-      <span class="card-tag" style="background:#FFF3E0;color:#E65100">Colonial era</span>
-    </a>
+        <h3><span class="en">History</span><span class="fr">Histoire</span></h3>
+       <p>
+    <span class="en">From Pondicherry to independence — trace 300 years of shared story.</span>
+    <span class="fr">De Pondichéry à l'indépendance — 300 ans d'histoire commune.</span>
+  </p>
+       <span class="card-tag" style="background:#FFF3E0;color:#E65100">
+    <span class="en">Colonial era</span><span class="fr">Ère coloniale</span>
+  </span>
+</a>
     <a href="trade.html" class="card">
       <div class="card-icon" style="background:#E3F2FD">📦</div>
-      <h3>Commerce</h3>
-      <p>Airbus, Renault, L'Oréal — how France and India do business today.</p>
-      <span class="card-tag" style="background:#E3F2FD;color:#0D47A1">Economy</span>
-    </a>
+       <h3><span class="en">Trade</span><span class="fr">Commerce</span></h3>
+      <p>
+    <span class="en">Airbus, Renault, L'Oréal — how France and India do business today.</span>
+    <span class="fr">Airbus, Renault, L'Oréal — comment la France et l'Inde font des affaires.</span>
+  </p>
+      <span class="card-tag" style="background:#E3F2FD;color:#0D47A1">
+    <span class="en">Economy</span><span class="fr">Économie</span>
+  </span>
+</a>
     <a href="culture.html" class="card">
       <div class="card-icon" style="background:#F3E5F5">🎨</div>
-      <h3>Culture</h3>
-      <p>Cafés in Pondicherry, yoga in Paris — the cultural exchange.</p>
-      <span class="card-tag" style="background:#F3E5F5;color:#4A148C">Arts &amp; society</span>
-    </a>
-    <a href="defence.html" class="card" style="border-color:#003189">
-      <div style="font-size:11px;background:#E8EAF6;color:#1A237E;padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;font-weight:600">Featured</div>
+     <h3><span class="en">Culture</span><span class="fr">Culture</span></h3>
+  <p>
+    <span class="en">Cafés in Pondicherry, yoga in Paris — the cultural exchange.</span>
+    <span class="fr">Cafés à Pondichéry, yoga à Paris — l'échange culturel.</span>
+  </p>
+  <span class="card-tag" style="background:#F3E5F5;color:#4A148C">
+    <span class="en">Arts &amp; society</span><span class="fr">Arts et société</span>
+  </span>
+</a>
+    <a href="defence.html" class="card" >
       <div class="card-icon" style="background:#E8EAF6">✈️</div>
-      <h3>Défense</h3>
-      <p>The Rafale deal, VARUNA exercises, and a strategic partnership.</p>
-      <span class="card-tag" style="background:#E8EAF6;color:#1A237E">Strategic</span>
-    </a>
+     <h3><span class="en">Defence</span><span class="fr">Défense</span></h3>
+  <p>
+    <span class="en">The Rafale deal, VARUNA exercises, and a strategic partnership.</span>
+    <span class="fr">Le contrat Rafale, les exercices VARUNA et un partenariat stratégique.</span>
+  </p>
+  <span class="card-tag" style="background:#E8EAF6;color:#1A237E">
+    <span class="en">Strategic</span><span class="fr">Stratégique</span>
+  </span>
+</a>
     <a href="technology.html" class="card">
       <div class="card-icon" style="background:#E8F5E9">🚀</div>
-      <h3>Technologie</h3>
-      <p>ISRO and CNES — how both nations explore space together.</p>
-      <span class="card-tag" style="background:#E8F5E9;color:#1B5E20">Space &amp; nuclear</span>
-    </a>
+     <h3><span class="en">Technology</span><span class="fr">Technologie</span></h3>
+  <p>
+    <span class="en">ISRO and CNES — how both nations explore space together.</span>
+    <span class="fr">ISRO et CNES — comment les deux nations explorent l'espace ensemble.</span>
+  </p>
+  <span class="card-tag" style="background:#E8F5E9;color:#1B5E20">
+    <span class="en">Space &amp; nuclear</span><span class="fr">Espace et nucléaire</span>
+  </span>
+</a>
+
     <a href="education.html" class="card">
       <div class="card-icon" style="background:#FFF9C4">📚</div>
-      <h3> Éducation</h3>
-      <p>Charpak scholarships, IIT-Paris exchanges, Alliance Française.</p>
-      <span class="card-tag" style="background:#FFF9C4;color:#827717">Academic ties</span>
-    </a>
+      <h3><span class="en">Education</span><span class="fr">Éducation</span></h3>
+  <p>
+    <span class="en">Charpak scholarships, IIT-Paris exchanges, Alliance Française.</span>
+    <span class="fr">Bourses Charpak, échanges IIT-Paris, Alliance Française.</span>
+  </p>
+  <span class="card-tag" style="background:#FFF9C4;color:#827717">
+    <span class="en">Academic ties</span><span class="fr">Liens académiques</span>
+  </span>
+</a>
     <a href="future.html" class="card">
       <div class="card-icon" style="background:#E0F7FA">🌏</div>
-      <h3>Future prospects</h3>
-      <p>Indo-Pacific strategy, green hydrogen, and the road ahead.</p>
-      <span class="card-tag" style="background:#E0F7FA;color:#006064">Indo-Pacific</span>
-    </a>
+      <h3><span class="en">Future aspects</span><span class="fr">Perspectives d'avenir</span></h3>
+  <p>
+    <span class="en">Indo-Pacific strategy, green hydrogen, and the road ahead.</span>
+    <span class="fr">Stratégie indo-pacifique, hydrogène vert et la voie à suivre.</span>
+  </p>
+  <span class="card-tag" style="background:#E0F7FA;color:#006064">
+    <span class="en">Indo-Pacific</span><span class="fr">Indo-Pacifique</span>
+  </span>
+</a>
   </div>
 
   <!-- Video Teaser -->
@@ -357,9 +441,12 @@
 
   <!-- Footer -->
   <footer>
-    <p>Fait avec amour et compassion - India–France Relations PBL Project 2026</p>
-    <p style="color:#FF9933;font-weight:600">Inde &amp; France ♦</p>
-  </footer>
+  <p>
+    <span class="en">Made by students · India–France Relations Project 2025</span>
+    <span class="fr">Fait par des étudiants · Projet Inde-France 2025</span>
+  </p>
+  <p style="color:#FF9933;font-weight:600">Inde &amp; France ♦</p>
+</footer>
 
 </body>
 </html>
