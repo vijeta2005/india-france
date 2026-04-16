@@ -168,6 +168,25 @@
       .trade-cols { grid-template-columns: 1fr; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
+    /* Responsive container for YouTube */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden; /* This keeps the corners rounded */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
 </head>
 <body>
@@ -202,7 +221,7 @@
       <a href="index.html"><span class="en">Home</span><span class="fr">Accueil</span></a> › <span class="en">Trade</span><span class="fr">Commerce</span>
     </div>
     <div class="topic-tag"><span class="en">Economy</span><span class="fr">Économie</span></div>
-    <h1>📦 <span class="en">India &amp; France — Trade &amp; Economy</span><span class="fr">Inde &amp; France — Commerce &amp; Économie</span></h1>
+    <h1>📦 <span class="en">India &amp; France — Trade &amp; Economy</span><span class="fr">Inde et France — Commerce et Économie</span></h1>
     <p>
       <span class="en">From Airbus jets to luxury perfumes — how two of the world's great economies trade, invest, and grow together.</span>
       <span class="fr">Des jets Airbus aux parfums de luxe — comment deux des plus grandes économies mondiales commercent, investissent et grandissent ensemble.</span>
@@ -217,12 +236,15 @@
         <span class="en">A fun 2-minute video on how India and France do business — what we sell, what we buy, and who the big players are.</span>
         <span class="fr">Une vidéo amusante de 2 minutes sur la façon dont l'Inde et la France font des affaires — ce que nous vendons, ce que nous achetons et qui sont les grands acteurs.</span>
       </p>
-      <div class="video-placeholder">
-        <div class="play-circle">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M2 1L15 9L2 17V1Z" fill="#003189"/></svg>
-        </div>
-        <span><span class="en">Paste your YouTube embed code here</span><span class="fr">Collez votre code d'intégration YouTube ici</span></span>
-      </div>
+      <div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/gCBrgtZX0wo" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
 
     <div class="section-heading"><span class="en">Trade at a glance</span><span class="fr">Le commerce en un coup d'œil</span></div>
