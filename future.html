@@ -217,7 +217,25 @@
       .indopacific { padding: 24px; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
+    /* Responsive container for YouTube */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden; /* This keeps the corners rounded */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
 </head>
 <body>
@@ -253,7 +271,7 @@
       <span class="en">Future aspects</span><span class="fr">Aspects futurs</span>
     </div>
     <div class="topic-tag">Indo-Pacific</div>
-    <h1>🌏 <span class="en">India &amp; France — Future Aspects</span><span class="fr">Inde &amp; France — Aspects Futurs</span></h1>
+    <h1>🌏 <span class="en">India &amp; France — Future Aspects</span><span class="fr">Inde et France — Aspects Futurs</span></h1>
     <p>
       <span class="en">The best of the India-France relationship is still ahead — from clean energy and artificial intelligence to a shared vision for a free and open Indo-Pacific.</span>
       <span class="fr">Le meilleur de la relation Inde-France est encore à venir — de l'énergie propre et l'intelligence artificielle à une vision partagée pour un Indo-Pacifique libre et ouvert.</span>
@@ -274,17 +292,15 @@
         <span class="en">A fun 2-minute video on where India and France are headed — and why the next decade could be their most exciting yet.</span>
         <span class="fr">Une vidéo amusante de 2 minutes sur l'orientation de l'Inde et de la France — et pourquoi la prochaine décennie pourrait être la plus excitante à ce jour.</span>
       </p>
-      <div class="video-placeholder">
-        <div class="play-circle">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
-            <path d="M2 1L15 9L2 17V1Z" fill="#003189"/>
-          </svg>
-        </div>
-        <span>
-          <span class="en">Paste your YouTube embed code here</span>
-          <span class="fr">Collez votre code d'intégration YouTube ici</span>
-        </span>
-      </div>
+      <div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/fIdTDwd_iL0" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
 
     <div class="section-heading">
@@ -511,8 +527,8 @@
 
   <footer>
     <p>
-      <span class="en">Made by students · India–France Relations Project 2025</span>
-      <span class="fr">Réalisé par des étudiants · Projet Relations Inde-France 2025</span>
+   <span class="en">Made by SRMIST Students · India–France Relations Project Based Learning 2026</span>
+      <span class="fr">Fait par les étudiants SRMIST · Apprentissage par projet Relations Inde–France 2026</span>
     </p>
     <p style="color:#FF9933;font-weight:600">Inde &amp; France ♦</p>
   </footer>
