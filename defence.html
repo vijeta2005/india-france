@@ -108,13 +108,32 @@
       .rafale-box { padding: 24px; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
+    /* Responsive container for YouTube */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden; /* This keeps the corners rounded */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="logo">
-      <span class="ind">India</span> &amp; <span class="fra">France</span>
+      <span class="ind">Inde</span> &amp; <span class="fra">France</span>
     </a>
     <ul class="nav-links">
       <li><a href="history.html"><span class="en">History</span><span class="fr">Histoire</span></a></li>
@@ -142,7 +161,7 @@
       <a href="index.html"><span class="en">Home</span><span class="fr">Accueil</span></a> › <span class="en">Defence</span><span class="fr">Défense</span>
     </div>
     <div class="topic-tag"><span class="en">Strategic</span><span class="fr">Stratégique</span></div>
-    <h1>✈️ <span class="en">India &amp; France — Defence</span><span class="fr">Inde &amp; France — Défense</span></h1>
+    <h1>✈️ <span class="en">India &amp; France — Defence</span><span class="fr">Inde et France — Défense</span></h1>
     <p>
       <span class="en">From the iconic Rafale jet deal to joint naval exercises in the Indian Ocean — France is one of India's most trusted defence partners.</span>
       <span class="fr">De l'emblématique contrat des avions Rafale aux exercices navals conjoints dans l'océan Indien — la France est l'un des partenaires de défense les plus fiables de l'Inde.</span>
@@ -158,14 +177,15 @@
         <span class="en">A fun 2-minute video on the Rafale deal, joint military exercises, and why France is India's go-to defence partner.</span>
         <span class="fr">Une vidéo amusante de 2 minutes sur le contrat Rafale, les exercices militaires conjoints et pourquoi la France est le partenaire de défense privilégié de l'Inde.</span>
       </p>
-      <div class="video-placeholder">
-        <div class="play-circle">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
-            <path d="M2 1L15 9L2 17V1Z" fill="#003189"/>
-          </svg>
-        </div>
-        <span><span class="en">Paste your YouTube embed code here</span><span class="fr">Collez votre code d'intégration YouTube ici</span></span>
-      </div>
+     <div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/bcpTu2vHcKk" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
 
     <div class="section-heading"><span class="en">The Rafale story</span><span class="fr">L'histoire du Rafale</span></div>
