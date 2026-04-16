@@ -173,7 +173,25 @@
       .culture-card { flex-direction: column; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
+    /* Responsive container for YouTube */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden; /* This keeps the corners rounded */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
 </head>
 <body>
@@ -211,7 +229,7 @@
     <div class="topic-tag">
       <span class="en">Arts &amp; Society</span><span class="fr">Arts et Société</span>
     </div>
-    <h1>🎨 <span class="en">India &amp; France — Culture</span><span class="fr">Inde &amp; France — Culture</span></h1>
+    <h1>🎨 <span class="en">India &amp; France — Culture</span><span class="fr">Inde et France — Culture</span></h1>
     <p>
       <span class="en">From French cafés in Tamil Nadu to Indian yoga studios in Paris — two of the world's richest cultures have been quietly influencing each other for centuries.</span>
       <span class="fr">Des cafés français au Tamil Nadu aux studios de yoga indiens à Paris — deux des cultures les plus riches du monde s'influencent mutuellement depuis des siècles.</span>
@@ -232,17 +250,15 @@
         <span class="en">A fun 2-minute video on the surprising cultural connections between India and France.</span>
         <span class="fr">Une vidéo amusante de 2 minutes sur les connexions culturelles surprenantes entre l'Inde et la France.</span>
       </p>
-      <div class="video-placeholder">
-        <div class="play-circle">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
-            <path d="M2 1L15 9L2 17V1Z" fill="#003189"/>
-          </svg>
-        </div>
-        <span>
-          <span class="en">Paste your YouTube embed code here</span>
-          <span class="fr">Collez votre code YouTube ici</span>
-        </span>
-      </div>
+      <div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/GhzzLnHIqmU" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
 
     <div class="section-heading">
