@@ -222,6 +222,51 @@
   transform: scale(1.1);
   box-shadow: 0 0 0 3px #FF9933 !important;
   }
+  /* Responsive container for YouTube */
+/* This is the "Box" that holds everything */
+.video-card {
+  max-width: 700px; /* Limits the size so it doesn't become huge */
+  margin: 40px auto; /* Centers the box on the page */
+  background: #f9f9f9;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.video-text h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #003189;
+}
+
+.video-text p {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* The Responsive Video Container */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Keeps 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
   </style>
 </head>
 <script>
@@ -427,17 +472,29 @@
   </div>
 
   <!-- Video Teaser -->
-  <div class="video-teaser" id="videos">
-    <div class="play-btn">
-      <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
-        <path d="M2 1L15 9L2 17V1Z" fill="white"/>
-      </svg>
-    </div>
-    <div class="video-text">
-      <h4>Watch: "Why Pondicherry still speaks French" — by Pari</h4>
-      <p>A fun 2-minute explainer on how France left a permanent mark on Tamil Nadu. More videos on each topic page.</p>
-    </div>
+  
+   <div class="video-card">
+  <div class="video-text">
+    <h4>
+      <span class="en">Watch: "Why Pondicherry still speaks French" — by Pari</span>
+      <span class="fr">Voir : "Pourquoi Pondichéry parle encore français" — par Pari</span>
+    </h4>
+    <p>
+      <span class="en">A fun 2-minute explainer on how France left a permanent mark on Tamil Nadu.</span>
+      <span class="fr">Une explication amusante de 2 minutes sur la façon dont la France a laissé une marque permanente sur le Tamil Nadu.</span>
+    </p>
   </div>
+  
+  <div class="video-container">
+    <iframe 
+      src="https://www.youtube.com/embed/3tITwGGqbYA" 
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</div>
 
   <!-- Footer -->
   <footer>
