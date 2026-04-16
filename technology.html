@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Technology — India & France</title>
+  <title>Technology — Inde & France</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -124,6 +124,25 @@
       .space-box { padding: 24px; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
+    /* Responsive container for YouTube */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden; /* This keeps the corners rounded */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
 </head>
 <body>
@@ -157,8 +176,8 @@
     <div class="breadcrumb">
       <a href="index.html"><span class="en">Home</span><span class="fr">Accueil</span></a> › <span class="en">Technology</span><span class="fr">Technologie</span>
     </div>
-    <div class="topic-tag"><span class="en">Space &amp; Nuclear</span><span class="fr">Espace &amp; Nucléaire</span></div>
-    <h1>🚀 <span class="en">India &amp; France — Technology</span><span class="fr">Inde &amp; France — Technologie</span></h1>
+    <div class="topic-tag"><span class="en">Space &amp; Nuclear</span><span class="fr">Espace et Nucléaire</span></div>
+    <h1>🚀 <span class="en">India &amp; France — Technology</span><span class="fr">Inde et France — Technologie</span></h1>
     <p>
       <span class="en">From launching satellites together to building nuclear reactors — India and France are partners at the very frontier of science and technology.</span>
       <span class="fr">Du lancement de satellites ensemble à la construction de réacteurs nucléaires — l'Inde et la France sont partenaires à la frontière même de la science et de la technologie.</span>
@@ -173,15 +192,18 @@
         <span class="en">A fun 2-minute video on ISRO, CNES, the Jaitapur nuclear plant, and how India and France explore space together.</span>
         <span class="fr">Une vidéo amusante de 2 minutes sur l'ISRO, le CNES, la centrale nucléaire de Jaitapur et comment l'Inde et la France explorent l'espace ensemble.</span>
       </p>
-      <div class="video-placeholder">
-        <div class="play-circle">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none"><path d="M2 1L15 9L2 17V1Z" fill="#003189"/></svg>
-        </div>
-        <span><span class="en">Paste your YouTube embed code here</span><span class="fr">Collez votre code d'intégration YouTube ici</span></span>
-      </div>
+      <div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/-YVo9jIByg0" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
 
-    <div class="section-heading"><span class="en">ISRO &amp; CNES — partners in space</span><span class="fr">ISRO &amp; CNES — partenaires dans l'espace</span></div>
+    <div class="section-heading"><span class="en">ISRO &amp; CNES — partners in space</span><span class="fr">ISRO et CNES — partenaires dans l'espace</span></div>
     <p class="section-intro">
       <span class="en">India's ISRO and France's CNES (Centre National d'Études Spatiales) have one of the longest-running space cooperation agreements in the world — going back over 50 years.</span>
       <span class="fr">L'ISRO (Inde) et le CNES (France) possèdent l'un des plus anciens accords de coopération spatiale au monde — remontant à plus de 50 ans.</span>
