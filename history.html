@@ -152,7 +152,25 @@
       .main { padding: 32px 20px; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
+    /* Responsive container for YouTube */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  border-radius: 10px;
+  overflow: hidden; /* This keeps the corners rounded */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
   </style>
 </head>
 <body>
@@ -190,7 +208,7 @@
     <div class="topic-tag">
       <span class="en">Colonial era</span><span class="fr">Époque coloniale</span>
     </div>
-    <h1>🏛️ <span class="en">India &amp; France — A History</span><span class="fr">Inde &amp; France — Une Histoire</span></h1>
+    <h1>🏛️ <span class="en">India &amp; France — History</span><span class="fr">Inde et France — Histoire</span></h1>
     <p>
       <span class="en">Three hundred years of contact, conflict, culture, and cooperation — from French trading posts on Indian shores to a modern strategic partnership.</span>
       <span class="fr">Trois cents ans de contact, de conflit, de culture et de coopération — des comptoirs français sur les côtes indiennes à un partenariat stratégique moderne.</span>
@@ -211,17 +229,15 @@
         <span class="en">A fun 2-minute video covering the biggest moments in India-France history.</span>
         <span class="fr">Une vidéo amusante de 2 minutes sur les grands moments de l'histoire Inde-France.</span>
       </p>
-      <div class="video-placeholder">
-        <div class="play-circle">
-          <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
-            <path d="M2 1L15 9L2 17V1Z" fill="#003189"/>
-          </svg>
-        </div>
-        <span>
-          <span class="en">Paste your YouTube embed code here</span>
-          <span class="fr">Collez votre code YouTube ici</span>
-        </span>
-      </div>
+      <div class="video-container">
+  <iframe 
+    src="https://www.youtube.com/embed/gUT3j03Ldds" 
+    title="YouTube video player" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+    allowfullscreen>
+  </iframe>
+</div>
     </div>
 
     <div class="section-heading">
@@ -336,8 +352,8 @@
 
   <footer>
     <p>
-      <span class="en">Made by students · India–France Relations Project 2025</span>
-      <span class="fr">Fait par des étudiants · Projet Inde-France 2025</span>
+      <span class="en">Made by SRMIST Students · India–France Relations Project Based Learning 2026</span>
+      <span class="fr">Fait par les étudiants SRMIST · Apprentissage par projet Relations Inde–France 2026</span>
     </p>
     <p style="color:#FF9933;font-weight:600">Inde &amp; France ♦</p>
   </footer>
