@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Defence — Inde & France</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Segoe UI', sans-serif; background: #ffffff; color: #1a1a1a; }
 
@@ -14,7 +14,7 @@
       padding: 16px 40px; border-bottom: 1px solid #e5e5e5;
       background: #fff; position: sticky; top: 0; z-index: 100;
     }
-     .logo { font-size: 20px; font-weight: 600; text-decoration: none; color: inherit; }
+    .logo { font-size: 20px; font-weight: 600; text-decoration: none; color: inherit; }
     .logo .ind { color: #FF9933; }
     .logo .fra { color: #003189; }
     .nav-links { display: flex; gap: 24px; list-style: none; }
@@ -22,11 +22,18 @@
     .nav-links a:hover { color: #003189; }
     .nav-links a.active { color: #1A237E; font-weight: 600; border-bottom: 2px solid #1A237E; padding-bottom: 2px; }
 
-    .page-hero {
-      background: #E8EAF6;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 56px 40px 48px;
+    /* Language Switcher Styles */
+    .lang-switcher { display: flex; align-items: center; gap: 10px; }
+    .lang-switcher img {
+      width: 36px; height: 24px; border-radius: 4px;
+      cursor: pointer; object-fit: cover;
+      border: 2px solid transparent; transition: all 0.2s;
     }
+    .lang-switcher img.active-lang { border-color: #FF9933; transform: scale(1.15); }
+    .fr { display: none; }
+    .en { display: inline; }
+
+    .page-hero { background: #E8EAF6; border-bottom: 1px solid #e5e5e5; padding: 56px 40px 48px; }
     .breadcrumb { font-size: 18px; color: #888; margin-bottom: 16px; }
     .breadcrumb a { color: #888; text-decoration: none; }
     .breadcrumb a:hover { color: #003189; }
@@ -35,126 +42,61 @@
       font-size: 11px; font-weight: 600; padding: 4px 12px;
       border-radius: 20px; margin-bottom: 16px;
     }
-    .page-hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+
+    /* Updated Heading Font to Playfair Display */
+    .page-hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; font-family: 'Playfair Display', serif; }
     .page-hero p { font-size: 16px; color: #555; max-width: 560px; line-height: 1.7; }
 
     .main { max-width: 820px; margin: 0 auto; padding: 48px 40px; }
 
-    .video-box {
-      background: #f5f7ff; border: 1px solid #d0d8f0;
-      border-radius: 12px; padding: 24px; margin-bottom: 48px;
-    }
-    .video-label {
-      font-size: 11px; font-weight: 600; text-transform: uppercase;
-      letter-spacing: 0.07em; color: #003189; margin-bottom: 12px;
-    }
+    .video-box { background: #f5f7ff; border: 1px solid #d0d8f0; border-radius: 12px; padding: 24px; margin-bottom: 48px; }
+    .video-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; color: #003189; margin-bottom: 12px; }
     .video-box h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
     .video-box p { font-size: 13px; color: #666; margin-bottom: 16px; line-height: 1.6; }
-    .video-placeholder {
-      background: #1a1a2e; border-radius: 10px; height: 260px;
-      display: flex; flex-direction: column; align-items: center;
-      justify-content: center; gap: 12px;
-    }
-    .play-circle {
-      width: 56px; height: 56px; background: #fff;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-    }
+    .video-placeholder { background: #1a1a2e; border-radius: 10px; height: 260px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+    .play-circle { width: 56px; height: 56px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .play-circle svg { margin-left: 4px; }
     .video-placeholder span { color: #aaa; font-size: 13px; }
 
-    .section-heading {
-      font-size: 27px; font-weight: 700; margin-bottom: 8px;
-      padding-bottom: 12px; border-bottom: 2px solid #1A237E;
-      display: inline-block;
-    }
+    /* Updated Section Heading Font to Playfair Display */
+    .section-heading { font-size: 27px; font-weight: 700; margin-bottom: 8px; padding-bottom: 12px; border-bottom: 2px solid #1A237E; display: inline-block; font-family: 'Playfair Display', serif; }
     .section-intro { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 36px; margin-top: 16px; }
 
-    /* Rafale spotlight */
-    .rafale-box {
-      background: #1a1a2e; border-radius: 16px;
-      padding: 36px; margin-bottom: 48px; color: #fff;
-    }
-    .rafale-label {
-      font-size: 11px; font-weight: 700; color: #FF9933;
-      text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px;
-    }
+    .rafale-box { background: #1a1a2e; border-radius: 16px; padding: 36px; margin-bottom: 48px; color: #fff; }
+    .rafale-label { font-size: 11px; font-weight: 700; color: #FF9933; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
     .rafale-box h3 { font-size: 24px; font-weight: 700; margin-bottom: 12px; color: #fff; }
     .rafale-box p { font-size: 14px; color: #bbb; line-height: 1.7; margin-bottom: 20px; }
-    .rafale-stats {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
-    }
-    .rafale-stat {
-      background: rgba(255,255,255,0.08); border-radius: 10px;
-      padding: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.1);
-    }
+    .rafale-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; }
+    .rafale-stat { background: rgba(255,255,255,0.08); border-radius: 10px; padding: 16px; text-align: center; border: 1px solid rgba(255,255,255,0.1); }
     .rafale-stat .rnum { font-size: 22px; font-weight: 700; color: #FF9933; }
     .rafale-stat .rlbl { font-size: 12px; color: #aaa; margin-top: 4px; }
 
-    /* Defence deals timeline */
     .timeline { position: relative; padding-left: 32px; margin-bottom: 48px; }
-    .timeline::before {
-      content: ''; position: absolute; left: 7px; top: 0; bottom: 0;
-      width: 2px; background: #e5e5e5;
-    }
+    .timeline::before { content: ''; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: #e5e5e5; }
     .timeline-item { position: relative; margin-bottom: 32px; }
-    .timeline-dot {
-      position: absolute; left: -28px; top: 4px;
-      width: 14px; height: 14px; border-radius: 50%;
-      background: #1A237E; border: 2px solid #fff;
-      box-shadow: 0 0 0 2px #1A237E;
-    }
-    .timeline-year {
-      font-size: 18px; font-weight: 700; color: #1A237E;
-      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;
-    }
+    .timeline-dot { position: absolute; left: -28px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: #1A237E; border: 2px solid #fff; box-shadow: 0 0 0 2px #1A237E; }
+    .timeline-year { font-size: 18px; font-weight: 700; color: #1A237E; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px; }
     .timeline-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
     .timeline-item p { font-size: 14px; color: #555; line-height: 1.6; }
 
-    /* Joint exercises */
-    .exercises-grid {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px; margin-bottom: 48px;
-    }
-    .exercise-card {
-      border: 1px solid #e5e5e5; border-radius: 12px; padding: 22px;
-    }
+    .exercises-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 48px; }
+    .exercise-card { border: 1px solid #e5e5e5; border-radius: 12px; padding: 22px; }
     .exercise-card:hover { border-color: #1A237E; }
-    .ex-badge {
-      display: inline-block; font-size: 12px; font-weight: 700;
-      padding: 4px 12px; border-radius: 20px; margin-bottom: 12px;
-    }
+    .ex-badge { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
     .exercise-card h4 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
     .exercise-card p { font-size: 14px; color: #555; line-height: 1.6; }
 
-    .did-you-know {
-      background: #E8EAF6; border-left: 4px solid #1A237E;
-      border-radius: 0 10px 10px 0; padding: 20px 24px; margin-bottom: 48px;
-    }
-    .did-you-know .dyk-label {
-      font-size: 18px; font-weight: 700; color: #1A237E;
-      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px;
-    }
+    .did-you-know { background: #E8EAF6; border-left: 4px solid #1A237E; border-radius: 0 10px 10px 0; padding: 20px 24px; margin-bottom: 48px; }
+    .did-you-know .dyk-label { font-size: 18px; font-weight: 700; color: #1A237E; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
     .did-you-know p { font-size: 14px; color: #444; line-height: 1.7; }
 
-    .page-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 24px 0; border-top: 1px solid #e5e5e5; margin-top: 16px;
-    }
-    .page-nav a {
-      display: flex; align-items: center; gap: 8px;
-      font-size: 14px; font-weight: 600; color: #003189;
-      text-decoration: none; padding: 10px 20px;
-      border: 1px solid #d0d8f0; border-radius: 8px; transition: background 0.2s;
-    }
+    .page-nav { display: flex; justify-content: space-between; align-items: center; padding: 24px 0; border-top: 1px solid #e5e5e5; margin-top: 16px; }
+    .page-nav a { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #003189; text-decoration: none; padding: 10px 20px; border: 1px solid #d0d8f0; border-radius: 8px; transition: background 0.2s; }
     .page-nav a:hover { background: #f0f4ff; }
     .page-nav .next { background: #003189; color: #fff; border-color: #003189; }
     .page-nav .next:hover { background: #00247a; }
 
-    footer {
-      padding: 24px 40px; border-top: 1px solid #e5e5e5;
-      display: flex; justify-content: space-between; align-items: center;
-    }
+    footer { padding: 24px 40px; border-top: 1px solid #e5e5e5; display: flex; justify-content: space-between; align-items: center; }
     footer p { font-size: 13px; color: #888; }
 
     @media (max-width: 600px) {
@@ -166,171 +108,243 @@
       .rafale-box { padding: 24px; }
       footer { flex-direction: column; gap: 8px; padding: 20px; }
     }
-
   </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="logo">
-      <span class="ind">Inde</span> &amp; <span class="fra">France</span>
+      <span class="ind">India</span> &amp; <span class="fra">France</span>
     </a>
     <ul class="nav-links">
-      <li><a href="history.html">Histoire</a></li>
-      <li><a href="trade.html">Commerce</a></li>
-      <li><a href="culture.html">Culture</a></li>
-      <li><a href="defence.html" class="active">Défense</a></li>
-      <li><a href="technology.html">Technologie</a></li>
-      <li><a href="education.html">Éducation</a></li>
-      <li><a href="future.html">Avenir</a></li>
+      <li><a href="history.html"><span class="en">History</span><span class="fr">Histoire</span></a></li>
+      <li><a href="trade.html"><span class="en">Trade</span><span class="fr">Commerce</span></a></li>
+      <li><a href="culture.html"><span class="en">Culture</span><span class="fr">Culture</span></a></li>
+      <li><a href="defence.html" class="active"><span class="en">Defence</span><span class="fr">Défense</span></a></li>
+      <li><a href="technology.html"><span class="en">Technology</span><span class="fr">Technologie</span></a></li>
+      <li><a href="education.html"><span class="en">Education</span><span class="fr">Éducation</span></a></li>
+      <li><a href="future.html"><span class="en">Future</span><span class="fr">Avenir</span></a></li>
     </ul>
+    <div class="lang-switcher">
+      <img src="https://flagcdn.com/w40/in.png" alt="English" id="flag-india" onclick="setLang('en')" title="English">
+      <img src="https://flagcdn.com/w40/fr.png" alt="Français" id="flag-france" onclick="setLang('fr')" title="Français">
+    </div>
   </nav>
+
   <div style="height:3px;display:flex">
-  <div style="flex:1;background:#002395"></div>
-  <div style="flex:1;background:#ffffff;border-top:1px solid #eee;border-bottom:1px solid #eee"></div>
-  <div style="flex:1;background:#ED2939"></div>
-</div>
+    <div style="flex:1;background:#002395"></div>
+    <div style="flex:1;background:#ffffff;border-top:1px solid #eee;border-bottom:1px solid #eee"></div>
+    <div style="flex:1;background:#ED2939"></div>
+  </div>
 
   <div class="page-hero">
-    <div class="breadcrumb"><a href="index.html">Home</a> › Defence</div>
-    <div class="topic-tag">Strategic</div>
-    <h1>✈️ Inde et France — Défense</h1>
-    <p>From the iconic Rafale jet deal to joint naval exercises in the Indian Ocean — France is one of India's most trusted defence partners.</p>
+    <div class="breadcrumb">
+      <a href="index.html"><span class="en">Home</span><span class="fr">Accueil</span></a> › <span class="en">Defence</span><span class="fr">Défense</span>
+    </div>
+    <div class="topic-tag"><span class="en">Strategic</span><span class="fr">Stratégique</span></div>
+    <h1>✈️ <span class="en">India &amp; France — Defence</span><span class="fr">Inde &amp; France — Défense</span></h1>
+    <p>
+      <span class="en">From the iconic Rafale jet deal to joint naval exercises in the Indian Ocean — France is one of India's most trusted defence partners.</span>
+      <span class="fr">De l'emblématique contrat des avions Rafale aux exercices navals conjoints dans l'océan Indien — la France est l'un des partenaires de défense les plus fiables de l'Inde.</span>
+    </p>
   </div>
 
   <div class="main">
 
     <div class="video-box">
-      <div class="video-label">Regardez l’explication</div>
-      <h3>Defence explained by ABHINAV</h3>
-      <p>A fun 2-minute video on the Rafale deal, joint military exercises, and why France is India's go-to defence partner.</p>
-      <!-- REPLACE with your YouTube embed iframe -->
+      <div class="video-label"><span class="en">Watch the explainer</span><span class="fr">Regarder l'explication</span></div>
+      <h3><span class="en">Defence explained by ABHINAV</span><span class="fr">La défense expliquée par ABHINAV</span></h3>
+      <p>
+        <span class="en">A fun 2-minute video on the Rafale deal, joint military exercises, and why France is India's go-to defence partner.</span>
+        <span class="fr">Une vidéo amusante de 2 minutes sur le contrat Rafale, les exercices militaires conjoints et pourquoi la France est le partenaire de défense privilégié de l'Inde.</span>
+      </p>
       <div class="video-placeholder">
         <div class="play-circle">
           <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
             <path d="M2 1L15 9L2 17V1Z" fill="#003189"/>
           </svg>
         </div>
-        <span>Paste your YouTube embed code here</span>
+        <span><span class="en">Paste your YouTube embed code here</span><span class="fr">Collez votre code d'intégration YouTube ici</span></span>
       </div>
     </div>
 
-    <!-- Rafale Spotlight -->
-    <div class="section-heading">L’histoire du Rafale</div>
-    <p class="section-intro">No single deal defines the India-France defence relationship more than the purchase of Rafale fighter jets — one of the biggest defence deals in Indian history.</p>
+    <div class="section-heading"><span class="en">The Rafale story</span><span class="fr">L'histoire du Rafale</span></div>
+    <p class="section-intro">
+      <span class="en">No single deal defines the India-France defence relationship more than the purchase of Rafale fighter jets — one of the biggest defence deals in Indian history.</span>
+      <span class="fr">Aucun contrat ne définit mieux la relation de défense Inde-France que l'achat d'avions de chasse Rafale — l'un des plus gros contrats de défense de l'histoire de l'Inde.</span>
+    </p>
 
     <div class="rafale-box">
-      <div class="rafale-label">Headline deal</div>
-      <h3>✈️ The Rafale Fighter Jet Deal</h3>
-      <p>In 2016, India signed a deal with France's Dassault Aviation to purchase 36 Rafale multirole fighter jets. The first jets arrived in India in 2020 and were inducted into the Indian Air Force at Ambala Air Base. The Rafale is considered one of the most advanced fighter aircraft in the world — capable of air superiority, ground attack, nuclear deterrence, and reconnaissance missions.</p>
+      <div class="rafale-label"><span class="en">Headline deal</span><span class="fr">Contrat phare</span></div>
+      <h3>✈️ <span class="en">The Rafale Fighter Jet Deal</span><span class="fr">Le contrat des avions de chasse Rafale</span></h3>
+      <p>
+        <span class="en">In 2016, India signed a deal with France's Dassault Aviation to purchase 36 Rafale multirole fighter jets. The first jets arrived in India in 2020 and were inducted into the Indian Air Force at Ambala Air Base. The Rafale is considered one of the most advanced fighter aircraft in the world — capable of air superiority, ground attack, nuclear deterrence, and reconnaissance missions.</span>
+        <span class="fr">En 2016, l'Inde a signé un accord avec la société française Dassault Aviation pour l'achat de 36 avions de chasse polyvalents Rafale. Les premiers jets sont arrivés en Inde en 2020 et ont été intégrés à l'armée de l'air indienne sur la base aérienne d'Ambala. Le Rafale est considéré comme l'un des avions de chasse les plus avancés au monde — capable de supériorité aérienne, d'attaque au sol, de dissuasion nucléaire et de missions de reconnaissance.</span>
+      </p>
       <div class="rafale-stats">
         <div class="rafale-stat">
           <div class="rnum">36</div>
-          <div class="rlbl">Jets purchased</div>
+          <div class="rlbl"><span class="en">Jets purchased</span><span class="fr">Jets achetés</span></div>
         </div>
         <div class="rafale-stat">
           <div class="rnum">₹59,000 Cr</div>
-          <div class="rlbl">Deal value</div>
+          <div class="rlbl"><span class="en">Deal value</span><span class="fr">Valeur du contrat</span></div>
         </div>
         <div class="rafale-stat">
           <div class="rnum">2020</div>
-          <div class="rlbl">First jets arrived</div>
+          <div class="rlbl"><span class="en">First jets arrived</span><span class="fr">Premiers jets arrivés</span></div>
         </div>
         <div class="rafale-stat">
           <div class="rnum">2</div>
-          <div class="rlbl">IAF squadrons equipped</div>
+          <div class="rlbl"><span class="en">IAF squadrons equipped</span><span class="fr">Escadrons de l'IAF équipés</span></div>
         </div>
       </div>
     </div>
 
-    <!-- Timeline -->
-    <div class="section-heading">Chronologie du partenariat de défense</div>
-    <p class="section-intro">The defence relationship between India and France has been built steadily over decades.</p>
+    <div class="section-heading"><span class="en">Defence partnership timeline</span><span class="fr">Chronologie du partenariat de défense</span></div>
+    <p class="section-intro">
+      <span class="en">The defence relationship between India and France has been built steadily over decades.</span>
+      <span class="fr">La relation de défense entre l'Inde et la France s'est construite régulièrement au fil des décennies.</span>
+    </p>
 
     <div class="timeline">
-
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-year">1953</div>
-        <h4>First defence cooperation</h4>
-        <p>India purchases its first Ouragan jet fighters from France — marking the beginning of a long defence partnership that continues to this day.</p>
+        <h4><span class="en">First defence cooperation</span><span class="fr">Première coopération de défense</span></h4>
+        <p>
+          <span class="en">India purchases its first Ouragan jet fighters from France — marking the beginning of a long defence partnership that continues to this day.</span>
+          <span class="fr">L'Inde achète ses premiers chasseurs à réaction Ouragan à la France — marquant le début d'un long partenariat de défense qui se poursuit encore aujourd'hui.</span>
+        </p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-year">1998</div>
-        <h4>Strategic Partnership signed</h4>
-        <p>India and France sign a comprehensive Strategic Partnership covering defence, space, nuclear energy, and trade — elevating the relationship to a new level.</p>
+        <h4><span class="en">Strategic Partnership signed</span><span class="fr">Signature du partenariat stratégique</span></h4>
+        <p>
+          <span class="en">India and France sign a comprehensive Strategic Partnership covering defence, space, nuclear energy, and trade — elevating the relationship to a new level.</span>
+          <span class="fr">L'Inde et la France signent un partenariat stratégique global couvrant la défense, l'espace, l'énergie nucléaire et le commerce — élevant la relation à un nouveau niveau.</span>
+        </p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-year">2005</div>
-        <h4>VARUNA naval exercises begin</h4>
-        <p>India and France launch joint naval exercises called VARUNA in the Indian Ocean, strengthening maritime security cooperation between the two navies.</p>
+        <h4><span class="en">VARUNA naval exercises begin</span><span class="fr">Début des exercices navals VARUNA</span></h4>
+        <p>
+          <span class="en">India and France launch joint naval exercises called VARUNA in the Indian Ocean, strengthening maritime security cooperation between the two navies.</span>
+          <span class="fr">L'Inde et la France lancent des exercices navals conjoints appelés VARUNA dans l'océan Indien, renforçant la coopération en matière de sécurité maritime entre les deux marines.</span>
+        </p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-year">2008</div>
-        <h4>Scorpene submarine deal</h4>
-        <p>India signs a deal with France's Naval Group to build six Scorpene-class submarines in India under technology transfer — a major boost to India's naval capabilities.</p>
+        <h4><span class="en">Scorpene submarine deal</span><span class="fr">Contrat des sous-marins Scorpène</span></h4>
+        <p>
+          <span class="en">India signs a deal with France's Naval Group to build six Scorpene-class submarines in India under technology transfer — a major boost to India's naval capabilities.</span>
+          <span class="fr">L'Inde signe un accord avec le groupe français Naval Group pour la construction de six sous-marins de classe Scorpène en Inde dans le cadre d'un transfert de technologie — un coup de pouce majeur pour les capacités navales de l'Inde.</span>
+        </p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-year">2016</div>
-        <h4>Rafale deal signed</h4>
-        <p>PM Modi and French President Hollande finalise the historic deal for 36 Rafale fighter jets — the largest single defence procurement in Indian Air Force history.</p>
+        <h4><span class="en">Rafale deal signed</span><span class="fr">Signature du contrat Rafale</span></h4>
+        <p>
+          <span class="en">PM Modi and French President Hollande finalise the historic deal for 36 Rafale fighter jets — the largest single defence procurement in Indian Air Force history.</span>
+          <span class="fr">Le Premier ministre Modi et le président français Hollande finalisent l'accord historique pour 36 avions de chasse Rafale — le plus important achat unique de défense de l'histoire de l'armée de l'air indienne.</span>
+        </p>
       </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-year">2023</div>
-        <h4>26 more Rafales ordered</h4>
-        <p>India signs a fresh deal for 26 Rafale Marine jets for the Indian Navy — to be deployed on INS Vikrant, India's first domestically built aircraft carrier.</p>
+        <h4><span class="en">26 more Rafales ordered</span><span class="fr">26 Rafale supplémentaires commandés</span></h4>
+        <p>
+          <span class="en">India signs a fresh deal for 26 Rafale Marine jets for the Indian Navy — to be deployed on INS Vikrant, India's first domestically built aircraft carrier.</span>
+          <span class="fr">L'Inde signe un nouvel accord pour 26 jets Rafale Marine pour la marine indienne — qui seront déployés sur l'INS Vikrant, le premier porte-avions de construction locale en Inde.</span>
+        </p>
       </div>
-
     </div>
 
-    <!-- Joint Exercises -->
-    <div class="section-heading">Exercices militaires conjoints</div>
-    <p class="section-intro">India and France regularly conduct joint military exercises across all three armed forces.</p>
+    <div class="section-heading"><span class="en">Joint military exercises</span><span class="fr">Exercices militaires conjoints</span></div>
+    <p class="section-intro">
+      <span class="en">India and France regularly conduct joint military exercises across all three armed forces.</span>
+      <span class="fr">L'Inde et la France organisent régulièrement des exercices militaires conjoints au sein des trois armées.</span>
+    </p>
 
     <div class="exercises-grid">
       <div class="exercise-card">
-        <span class="ex-badge" style="background:#E3F2FD;color:#0D47A1">Navy</span>
+        <span class="ex-badge" style="background:#E3F2FD;color:#0D47A1"><span class="en">Navy</span><span class="fr">Marine</span></span>
         <h4>VARUNA</h4>
-        <p>Annual bilateral naval exercise between the Indian Navy and French Navy in the Indian Ocean. Covers anti-submarine warfare, air defence, and maritime patrol.</p>
+        <p>
+          <span class="en">Annual bilateral naval exercise between the Indian Navy and French Navy in the Indian Ocean. Covers anti-submarine warfare, air defence, and maritime patrol.</span>
+          <span class="fr">Exercice naval bilatéral annuel entre la marine indienne et la marine française dans l'océan Indien. Couvre la lutte anti-sous-marine, la défense aérienne et la patrouille maritime.</span>
+        </p>
       </div>
       <div class="exercise-card">
-        <span class="ex-badge" style="background:#E8F5E9;color:#1B5E20">Army</span>
+        <span class="ex-badge" style="background:#E8F5E9;color:#1B5E20"><span class="en">Army</span><span class="fr">Armée de terre</span></span>
         <h4>SHAKTI</h4>
-        <p>Joint army exercise between Indian Army and French Army. Focuses on counter-terrorism operations and jungle warfare in varied terrains.</p>
+        <p>
+          <span class="en">Joint army exercise between Indian Army and French Army. Focuses on counter-terrorism operations and jungle warfare in varied terrains.</span>
+          <span class="fr">Exercice militaire conjoint entre l'armée indienne et l'armée française. Se concentre sur les opérations de lutte contre le terrorisme et la guerre de jungle dans des terrains variés.</span>
+        </p>
       </div>
       <div class="exercise-card">
-        <span class="ex-badge" style="background:#FFF3E0;color:#E65100">Air Force</span>
+        <span class="ex-badge" style="background:#FFF3E0;color:#E65100"><span class="en">Air Force</span><span class="fr">Armée de l'air</span></span>
         <h4>GARUDA</h4>
-        <p>Bilateral air exercise between the Indian Air Force and French Air and Space Force. Involves advanced fighter jet operations including the Rafale.</p>
+        <p>
+          <span class="en">Bilateral air exercise between the Indian Air Force and French Air and Space Force. Involves advanced fighter jet operations including the Rafale.</span>
+          <span class="fr">Exercice aérien bilatéral entre l'armée de l'air indienne et l'armée de l'air et de l'espace française. Implique des opérations avancées d'avions de chasse, dont le Rafale.</span>
+        </p>
       </div>
     </div>
 
     <div class="did-you-know">
-      <div class="dyk-label">   Saviez-vous?</div>
-      <p>France is one of the very few countries that has consistently supported India's bid for a permanent seat on the UN Security Council. This political backing — combined with deep defence ties — makes France one of India's most strategically important partners in the world.</p>
+      <div class="dyk-label"><span class="en">Did You Know?</span><span class="fr">Le saviez-vous ?</span></div>
+      <p>
+        <span class="en">France is one of the very few countries that has consistently supported India's bid for a permanent seat on the UN Security Council. This political backing — combined with deep defence ties — makes France one of India's most strategically important partners in the world.</span>
+        <span class="fr">La France est l'un des très rares pays à avoir soutenu de manière constante la candidature de l'Inde à un siège permanent au Conseil de sécurité de l'ONU. Ce soutien politique — combiné à des liens de défense profonds — fait de la France l'un des partenaires stratégiques les plus importants de l'Inde dans le monde.</span>
+      </p>
     </div>
 
     <div class="page-nav">
-      <a href="culture.html">← Previous: Culture</a>
-      <a href="technology.html" class="next">Next: Technology →</a>
+      <a href="culture.html"><span class="en">← Previous: Culture</span><span class="fr">← Précédent: Culture</span></a>
+      <a href="technology.html" class="next"><span class="en">Next: Technology →</span><span class="fr">Suivant: Technologie →</span></a>
     </div>
-
   </div>
 
   <footer>
-    <p>Made by students · India–France Relations Project 2025</p>
+    <p>
+      <span class="en">Made by SRMIST Students · India–France Relations Project Based Learning 2026</span>
+      <span class="fr">Fait par les étudiants SRMIST · Apprentissage par projet Relations Inde–France 2026</span>
+    </p>
     <p style="color:#FF9933;font-weight:600">Inde &amp; France ♦</p>
   </footer>
 
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.en').forEach(el => {
+        el.style.display = lang === 'en' ? 'inline' : 'none';
+      });
+      document.querySelectorAll('.fr').forEach(el => {
+        el.style.display = lang === 'fr' ? 'inline' : 'none';
+      });
+      const indiaFlag = document.getElementById('flag-india');
+      const franceFlag = document.getElementById('flag-france');
+      if (indiaFlag && franceFlag) {
+        indiaFlag.classList.toggle('active-lang', lang === 'en');
+        franceFlag.classList.toggle('active-lang', lang === 'fr');
+      }
+      localStorage.setItem('lang', lang);
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      const saved = localStorage.getItem('lang') || 'en';
+      setLang(saved);
+    });
+  </script>
 </body>
 </html>
