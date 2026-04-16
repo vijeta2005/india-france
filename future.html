@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Future Aspects — Inde & France</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,6 +23,20 @@
     .nav-links a:hover { color: #003189; }
     .nav-links a.active { color: #006064; font-weight: 600; border-bottom: 2px solid #006064; padding-bottom: 2px; }
 
+    /* Language switcher styles from history.html */
+    .lang-switcher {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .lang-switcher img {
+      width: 36px; height: 24px; border-radius: 4px;
+      cursor: pointer; object-fit: cover;
+      border: 2px solid transparent; transition: all 0.2s;
+    }
+    .lang-switcher img.active-lang {
+      border-color: #FF9933;
+      transform: scale(1.15);
+    }
+
     .page-hero {
       background: linear-gradient(135deg, #E0F7FA 0%, #E8EAF6 100%);
       border-bottom: 1px solid #e5e5e5;
@@ -35,7 +50,8 @@
       font-size: 11px; font-weight: 600; padding: 4px 12px;
       border-radius: 20px; margin-bottom: 16px;
     }
-    .page-hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
+    /* Applied Playfair Display font here */
+    .page-hero h1 { font-size: 32px; font-weight: 700; margin-bottom: 12px; font-family: 'Playfair Display', serif; }
     .page-hero p { font-size: 16px; color: #555; max-width: 560px; line-height: 1.7; }
 
     .main { max-width: 820px; margin: 0 auto; padding: 48px 40px; }
@@ -62,10 +78,11 @@
     .play-circle svg { margin-left: 4px; }
     .video-placeholder span { color: #aaa; font-size: 13px; }
 
+    /* Applied Playfair Display font to section headings */
     .section-heading {
       font-size: 27px; font-weight: 700; margin-bottom: 8px;
       padding-bottom: 12px; border-bottom: 2px solid #006064;
-      display: inline-block;
+      display: inline-block; font-family: 'Playfair Display', serif;
     }
     .section-intro { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 36px; margin-top: 16px; }
 
@@ -186,6 +203,10 @@
     }
     footer p { font-size: 13px; color: #888; }
 
+    /* Visibility classes */
+    .fr { display: none; }
+    .en { display: inline; }
+
     @media (max-width: 600px) {
       nav { padding: 12px 20px; }
       .nav-links { display: none; }
@@ -203,59 +224,87 @@
 
   <nav>
     <a href="index.html" class="logo">
-      <span class="ind">Inde</span> &amp; <span class="fra">France</span>
+      <span class="ind">India</span> &amp; <span class="fra">France</span>
     </a>
     <ul class="nav-links">
-       <li><a href="history.html" >Histoire</a></li>
-      <li><a href="trade.html">Commerce</a></li>
-      <li><a href="culture.html">Culture</a></li>
-      <li><a href="defence.html">Défense</a></li>
-      <li><a href="technology.html">Technologie</a></li>
-      <li><a href="education.html">Éducation</a></li>
-      <li><a href="future.html"class="active">Avenir</a></li>
+      <li><a href="history.html"><span class="en">History</span><span class="fr">Histoire</span></a></li>
+      <li><a href="trade.html"><span class="en">Trade</span><span class="fr">Commerce</span></a></li>
+      <li><a href="culture.html"><span class="en">Culture</span><span class="fr">Culture</span></a></li>
+      <li><a href="defence.html"><span class="en">Defense</span><span class="fr">Défense</span></a></li>
+      <li><a href="technology.html"><span class="en">Technology</span><span class="fr">Technologie</span></a></li>
+      <li><a href="education.html"><span class="en">Education</span><span class="fr">Éducation</span></a></li>
+      <li><a href="future.html" class="active"><span class="en">Future</span><span class="fr">Avenir</span></a></li>
     </ul>
+    <div class="lang-switcher">
+      <img src="https://flagcdn.com/w40/in.png" alt="English" id="flag-india" onclick="setLang('en')" title="English">
+      <img src="https://flagcdn.com/w40/fr.png" alt="Français" id="flag-france" onclick="setLang('fr')" title="Français">
+    </div>
   </nav>
+
   <div style="height:3px;display:flex">
-  <div style="flex:1;background:#002395"></div>
-  <div style="flex:1;background:#ffffff;border-top:1px solid #eee;border-bottom:1px solid #eee"></div>
-  <div style="flex:1;background:#ED2939"></div>
-</div>
+    <div style="flex:1;background:#002395"></div>
+    <div style="flex:1;background:#ffffff;border-top:1px solid #eee;border-bottom:1px solid #eee"></div>
+    <div style="flex:1;background:#ED2939"></div>
+  </div>
 
   <div class="page-hero">
-    <div class="breadcrumb"><a href="index.html">Home</a> › Future aspects</div>
+    <div class="breadcrumb">
+      <a href="index.html"><span class="en">Home</span><span class="fr">Accueil</span></a> › 
+      <span class="en">Future aspects</span><span class="fr">Aspects futurs</span>
+    </div>
     <div class="topic-tag">Indo-Pacific</div>
-    <h1>🌏 Inde et France — L’avenir</h1>
-    <p>The best of the India-France relationship is still ahead — from clean energy and artificial intelligence to a shared vision for a free and open Indo-Pacific.</p>
+    <h1>🌏 <span class="en">India &amp; France — Future Aspects</span><span class="fr">Inde &amp; France — Aspects Futurs</span></h1>
+    <p>
+      <span class="en">The best of the India-France relationship is still ahead — from clean energy and artificial intelligence to a shared vision for a free and open Indo-Pacific.</span>
+      <span class="fr">Le meilleur de la relation Inde-France est encore à venir — de l'énergie propre et l'intelligence artificielle à une vision partagée pour un Indo-Pacifique libre et ouvert.</span>
+    </p>
   </div>
 
   <div class="main">
 
     <div class="video-box">
-      <div class="video-label">Regardez l’explication</div>
-      <h3>Future aspects explained by ABHINAV</h3>
-      <p>A fun 2-minute video on where India and France are headed — and why the next decade could be their most exciting yet.</p>
-      <!-- REPLACE with your YouTube embed iframe -->
+      <div class="video-label">
+        <span class="en">Watch the explainer</span><span class="fr">Regarder l'explication</span>
+      </div>
+      <h3>
+        <span class="en">Future aspects explained by ABHINAV</span>
+        <span class="fr">Les aspects futurs expliqués par ABHINAV</span>
+      </h3>
+      <p>
+        <span class="en">A fun 2-minute video on where India and France are headed — and why the next decade could be their most exciting yet.</span>
+        <span class="fr">Une vidéo amusante de 2 minutes sur l'orientation de l'Inde et de la France — et pourquoi la prochaine décennie pourrait être la plus excitante à ce jour.</span>
+      </p>
       <div class="video-placeholder">
         <div class="play-circle">
           <svg width="16" height="18" viewBox="0 0 16 18" fill="none">
             <path d="M2 1L15 9L2 17V1Z" fill="#003189"/>
           </svg>
         </div>
-        <span>Paste your YouTube embed code here</span>
+        <span>
+          <span class="en">Paste your YouTube embed code here</span>
+          <span class="fr">Collez votre code d'intégration YouTube ici</span>
+        </span>
       </div>
     </div>
 
-    <!-- Future pillars -->
-    <div class="section-heading">Les cinq piliers de l’avenir</div>
-    <p class="section-intro">The India-France relationship is evolving rapidly. These are the five areas where the partnership is expected to grow the most in the coming decade.</p>
+    <div class="section-heading">
+      <span class="en">Five pillars of the future</span><span class="fr">Cinq piliers de l'avenir</span>
+    </div>
+    <p class="section-intro">
+      <span class="en">The India-France relationship is evolving rapidly. These are the five areas where the partnership is expected to grow the most in the coming decade.</span>
+      <span class="fr">La relation Inde-France évolue rapidement. Voici les cinq domaines où le partenariat devrait croître le plus au cours de la prochaine décennie.</span>
+    </p>
 
     <div class="pillars">
 
       <div class="pillar">
         <div class="pillar-icon" style="background:#E8F5E9">🌱</div>
         <div>
-          <h4>Climate &amp; clean energy</h4>
-          <p>Both India and France have committed to ambitious climate targets. The International Solar Alliance — co-founded by the two countries — is mobilising $1 trillion in solar investments. Joint projects in green hydrogen, offshore wind, and nuclear energy will be central to both nations meeting their net-zero goals. France brings nuclear expertise; India brings scale and manufacturing capacity.</p>
+          <h4><span class="en">Climate &amp; clean energy</span><span class="fr">Climat &amp; énergie propre</span></h4>
+          <p>
+            <span class="en">Both India and France have committed to ambitious climate targets. The International Solar Alliance — co-founded by the two countries — is mobilising $1 trillion in solar investments. Joint projects in green hydrogen, offshore wind, and nuclear energy will be central to both nations meeting their net-zero goals. France brings nuclear expertise; India brings scale and manufacturing capacity.</span>
+            <span class="fr">L'Inde et la France se sont engagées à atteindre des objectifs climatiques ambitieux. L'Alliance Solaire Internationale — cofondée par les deux pays — mobilise 1 000 milliards de dollars d'investissements solaires. Les projets conjoints dans l'hydrogène vert, l'éolien offshore et l'énergie nucléaire seront essentiels pour que les deux pays atteignent leurs objectifs de neutralité carbone. La France apporte son expertise nucléaire ; l'Inde apporte son échelle et sa capacité de production.</span>
+          </p>
           <span class="pillar-tag" style="background:#E8F5E9;color:#1B5E20">Climate</span>
         </div>
       </div>
@@ -263,8 +312,11 @@
       <div class="pillar">
         <div class="pillar-icon" style="background:#E3F2FD">🤖</div>
         <div>
-          <h4>Artificial intelligence &amp; digital</h4>
-          <p>The 2023 Digital Partnership between India and France created a framework for cooperation on AI, cybersecurity, and digital public infrastructure. India's massive digital ecosystem and France's AI research excellence are highly complementary. Joint AI research centres, startup partnerships, and data governance frameworks are all in development.</p>
+          <h4><span class="en">Artificial intelligence &amp; digital</span><span class="fr">Intelligence artificielle &amp; numérique</span></h4>
+          <p>
+            <span class="en">The 2023 Digital Partnership between India and France created a framework for cooperation on AI, cybersecurity, and digital public infrastructure. India's massive digital ecosystem and France's AI research excellence are highly complementary. Joint AI research centres, startup partnerships, and data governance frameworks are all in development.</span>
+            <span class="fr">Le partenariat numérique de 2023 entre l'Inde et la France a créé un cadre de coopération sur l'IA, la cybersécurité et l'infrastructure publique numérique. L'écosystème numérique massif de l'Inde et l'excellence de la France en recherche sur l'IA sont très complémentaires. Des centres de recherche conjoints en IA, des partenariats de start-up et des cadres de gouvernance des données sont tous en cours de développement.</span>
+          </p>
           <span class="pillar-tag" style="background:#E3F2FD;color:#0D47A1">AI &amp; digital</span>
         </div>
       </div>
@@ -272,8 +324,11 @@
       <div class="pillar">
         <div class="pillar-icon" style="background:#FCE4EC">✈️</div>
         <div>
-          <h4>Defence &amp; aerospace manufacturing</h4>
-          <p>India's push for defence self-reliance under the "Make in India" programme creates huge opportunities for French companies. Dassault, Naval Group, and Safran are all looking to set up manufacturing in India. The new deal for 26 Rafale Marine jets includes significant technology transfer — meaning India will increasingly build and maintain advanced French military equipment on Indian soil.</p>
+          <h4><span class="en">Defence &amp; aerospace manufacturing</span><span class="fr">Défense &amp; fabrication aérospatiale</span></h4>
+          <p>
+            <span class="en">India's push for defence self-reliance under the "Make in India" programme creates huge opportunities for French companies. Dassault, Naval Group, and Safran are all looking to set up manufacturing in India. The new deal for 26 Rafale Marine jets includes significant technology transfer — meaning India will increasingly build and maintain advanced French military equipment on Indian soil.</span>
+            <span class="fr">L'élan de l'Inde pour l'autosuffisance en matière de défense dans le cadre du programme « Make in India » crée d'énormes opportunités pour les entreprises françaises. Dassault, Naval Group et Safran cherchent tous à s'implanter en Inde. Le nouvel accord pour 26 jets Rafale Marine comprend un transfert technologique important — ce qui signifie que l'Inde construira et entretiendra de plus en plus d'équipements militaires français avancés sur son sol.</span>
+          </p>
           <span class="pillar-tag" style="background:#FCE4EC;color:#880E4F">Defence</span>
         </div>
       </div>
@@ -281,8 +336,11 @@
       <div class="pillar">
         <div class="pillar-icon" style="background:#F3E5F5">🚀</div>
         <div>
-          <h4>Space exploration</h4>
-          <p>ISRO and CNES are planning several new joint missions including TRISHNA for climate monitoring and continued collaboration on ocean observation satellites. As India ramps up its space programme — with lunar missions, a space station, and crewed spaceflight planned — France is positioned as a key partner providing sensors, instruments, and scientific expertise.</p>
+          <h4><span class="en">Space exploration</span><span class="fr">Exploration spatiale</span></h4>
+          <p>
+            <span class="en">ISRO and CNES are planning several new joint missions including TRISHNA for climate monitoring and continued collaboration on ocean observation satellites. As India ramps up its space programme — with lunar missions, a space station, and crewed spaceflight planned — France is positioned as a key partner providing sensors, instruments, and scientific expertise.</span>
+            <span class="fr">L'ISRO et le CNES prévoient plusieurs nouvelles missions conjointes, notamment TRISHNA pour la surveillance du climat et une collaboration continue sur les satellites d'observation des océans. Alors que l'Inde intensifie son programme spatial — avec des missions lunaires, une station spatiale et des vols spatiaux habités prévus — la France se positionne comme un partenaire clé fournissant des capteurs, des instruments et une expertise scientifique.</span>
+          </p>
           <span class="pillar-tag" style="background:#F3E5F5;color:#4A148C">Space</span>
         </div>
       </div>
@@ -290,123 +348,180 @@
       <div class="pillar">
         <div class="pillar-icon" style="background:#FFF9C4">🎓</div>
         <div>
-          <h4>Education &amp; people-to-people ties</h4>
-          <p>France has set a target of welcoming 20,000 Indian students per year by 2025. New joint degree programmes, expanded Charpak scholarships, and easier visa processes are all making France a top destination for Indian students. At the same time, French companies in India are creating demand for French-speaking Indian professionals — making French language skills increasingly valuable in the Indian job market.</p>
+          <h4><span class="en">Education &amp; people-to-people ties</span><span class="fr">Éducation &amp; liens entre les peuples</span></h4>
+          <p>
+            <span class="en">France has set a target of welcoming 20,000 Indian students per year by 2025. New joint degree programmes, expanded Charpak scholarships, and easier visa processes are all making France a top destination for Indian students. At the same time, French companies in India are creating demand for French-speaking Indian professionals — making French language skills increasingly valuable in the Indian job market.</span>
+            <span class="fr">La France s'est fixé pour objectif d'accueillir 20 000 étudiants indiens par an d'ici 2025. De nouveaux programmes de diplômes conjoints, l'élargissement des bourses Charpak et des processus de visa simplifiés font de la France une destination de choix pour les étudiants indiens. Dans le même temps, les entreprises françaises en Inde créent une demande de professionnels indiens francophones — rendant les compétences en langue française de plus en plus précieuses sur le marché du travail indien.</span>
+          </p>
           <span class="pillar-tag" style="background:#FFF9C4;color:#F57F17">Education</span>
         </div>
       </div>
 
     </div>
 
-    <!-- Indo Pacific -->
-    <div class="section-heading">La vision indo-pacifique</div>
-    <p class="section-intro">France and India share a vision for a free, open, and rules-based Indo-Pacific — and are working together to make it happen.</p>
+    <div class="section-heading">
+      <span class="en">The Indo-Pacific vision</span><span class="fr">La vision Indo-Pacifique</span>
+    </div>
+    <p class="section-intro">
+      <span class="en">France and India share a vision for a free, open, and rules-based Indo-Pacific — and are working together to make it happen.</span>
+      <span class="fr">La France et l'Inde partagent une vision d'un Indo-Pacifique libre, ouvert et fondé sur des règles — et travaillent ensemble pour y parvenir.</span>
+    </p>
 
     <div class="indopacific">
-      <div class="ip-label">Strategic alignment</div>
-      <h3>🌊 A shared vision for the Indo-Pacific</h3>
-      <p>France is the only European country with a permanent military presence in the Indian Ocean — through its overseas territories like Réunion and Mayotte. This gives France a unique stake in Indo-Pacific stability. India and France have aligned their Indo-Pacific strategies and are working together on maritime security, freedom of navigation, and counterbalancing Chinese influence in the region.</p>
+      <div class="ip-label"><span class="en">Strategic alignment</span><span class="fr">Alignement stratégique</span></div>
+      <h3>🌊 <span class="en">A shared vision for the Indo-Pacific</span><span class="fr">Une vision partagée pour l'Indo-Pacifique</span></h3>
+      <p>
+        <span class="en">France is the only European country with a permanent military presence in the Indian Ocean — through its overseas territories like Réunion and Mayotte. This gives France a unique stake in Indo-Pacific stability. India and France have aligned their Indo-Pacific strategies and are working together on maritime security, freedom of navigation, and counterbalancing Chinese influence in the region.</span>
+        <span class="fr">La France est le seul pays européen à disposer d'une présence militaire permanente dans l'océan Indien — par le biais de ses territoires d'outre-mer comme la Réunion et Mayotte. Cela donne à la France un intérêt unique pour la stabilité de l'Indo-Pacifique. L'Inde et la France ont aligné leurs stratégies Indo-Pacifique et travaillent ensemble sur la sécurité maritime, la liberté de navigation et le contrepoids à l'influence chinoise dans la région.</span>
+      </p>
       <div class="ip-points">
         <div class="ip-point">
           <div class="ip-dot"></div>
-          <p>France has 1.6 million citizens and significant military assets in the Indian Ocean region — making it a natural partner for India's maritime security goals.</p>
+          <p>
+            <span class="en">France has 1.6 million citizens and significant military assets in the Indian Ocean region — making it a natural partner for India's maritime security goals.</span>
+            <span class="fr">La France compte 1,6 million de citoyens et d'importants moyens militaires dans la région de l'océan Indien — ce qui en fait un partenaire naturel pour les objectifs de sécurité maritime de l'Inde.</span>
+          </p>
         </div>
         <div class="ip-point">
           <div class="ip-dot"></div>
-          <p>The two countries conduct regular naval patrols and exercises in the Indian Ocean through the VARUNA exercise series.</p>
+          <p>
+            <span class="en">The two countries conduct regular naval patrols and exercises in the Indian Ocean through the VARUNA exercise series.</span>
+            <span class="fr">Les deux pays effectuent régulièrement des patrouilles navales et des exercices dans l'océan Indien via la série d'exercices VARUNA.</span>
+          </p>
         </div>
         <div class="ip-point">
           <div class="ip-dot"></div>
-          <p>France strongly supports India's membership in the UN Security Council as a permanent member — a key Indian foreign policy goal.</p>
+          <p>
+            <span class="en">France strongly supports India's membership in the UN Security Council as a permanent member — a key Indian foreign policy goal.</span>
+            <span class="fr">La France soutient fermement l'adhésion de l'Inde au Conseil de sécurité de l'ONU en tant que membre permanent — un objectif clé de la politique étrangère indienne.</span>
+          </p>
         </div>
         <div class="ip-point">
           <div class="ip-dot"></div>
-          <p>Both nations are pushing for a multilateral Indo-Pacific framework that includes ASEAN, Australia, Japan, and other democracies — not dominated by any single power.</p>
+          <p>
+            <span class="en">Both nations are pushing for a multilateral Indo-Pacific framework that includes ASEAN, Australia, Japan, and other democracies — not dominated by any single power.</span>
+            <span class="fr">Les deux nations poussent pour un cadre Indo-Pacifique multilatéral incluant l'ASEAN, l'Australie, le Japon et d'autres démocraties — non dominé par une seule puissance.</span>
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Future timeline -->
-    <div class="section-heading">Points à surveille</div>
-    <p class="section-intro">Key milestones and projects coming up in the India-France relationship.</p>
+    <div class="section-heading">
+      <span class="en">What to watch for</span><span class="fr">Ce qu'il faut surveiller</span>
+    </div>
+    <p class="section-intro">
+      <span class="en">Key milestones and projects coming up in the India-France relationship.</span>
+      <span class="fr">Jalons et projets clés à venir dans la relation Inde-France.</span>
+    </p>
 
     <div class="future-timeline">
       <div class="ft-item">
         <span class="ft-year">2025</span>
         <div>
-          <h5>TRISHNA satellite launch</h5>
-          <p>The joint ISRO-CNES climate monitoring satellite is set to launch — measuring land surface temperatures to track urban heat islands and climate change.</p>
+          <h5><span class="en">TRISHNA satellite launch</span><span class="fr">Lancement du satellite TRISHNA</span></h5>
+          <p>
+            <span class="en">The joint ISRO-CNES climate monitoring satellite is set to launch — measuring land surface temperatures to track urban heat islands and climate change.</span>
+            <span class="fr">Le satellite conjoint ISRO-CNES de surveillance du climat doit être lancé — mesurant les températures de surface terrestre pour suivre les îlots de chaleur urbains et le changement climatique.</span>
+          </p>
         </div>
       </div>
       <div class="ft-item">
         <span class="ft-year">2026</span>
         <div>
-          <h5>Jaitapur nuclear plant progress</h5>
-          <p>The Jaitapur Nuclear Power Plant in Maharashtra — a joint India-France project — is expected to see significant construction milestones, moving toward becoming the world's largest nuclear plant.</p>
+          <h5><span class="en">Jaitapur nuclear plant progress</span><span class="fr">Progrès de la centrale nucléaire de Jaitapur</span></h5>
+          <p>
+            <span class="en">The Jaitapur Nuclear Power Plant in Maharashtra — a joint India-France project — is expected to see significant construction milestones, moving toward becoming the world's largest nuclear plant.</span>
+            <span class="fr">La centrale nucléaire de Jaitapur dans le Maharashtra — un projet conjoint Inde-France — devrait connaître des étapes de construction significatives, en vue de devenir la plus grande centrale nucléaire au monde.</span>
+          </p>
         </div>
       </div>
       <div class="ft-item">
         <span class="ft-year">2027</span>
         <div>
-          <h5>Rafale Marine delivery begins</h5>
-          <p>The first of 26 Rafale Marine jets ordered for the Indian Navy are expected to be delivered — to be deployed on India's aircraft carrier INS Vikrant.</p>
+          <h5><span class="en">Rafale Marine delivery begins</span><span class="fr">Début de la livraison des Rafale Marine</span></h5>
+          <p>
+            <span class="en">The first of 26 Rafale Marine jets ordered for the Indian Navy are expected to be delivered — to be deployed on India's aircraft carrier INS Vikrant.</span>
+            <span class="fr">Le premier des 26 jets Rafale Marine commandés pour la marine indienne devrait être livré — pour être déployé sur le porte-avions indien INS Vikrant.</span>
+          </p>
         </div>
       </div>
       <div class="ft-item">
         <span class="ft-year">2030</span>
         <div>
-          <h5>20,000 Indian students in France</h5>
-          <p>France's target of welcoming 20,000 Indian students per year — set during PM Modi's 2023 visit — is expected to be reached, making India the top source of international students in France.</p>
+          <h5><span class="en">20,000 Indian students in France</span><span class="fr">20 000 étudiants indiens en France</span></h5>
+          <p>
+            <span class="en">France's target of welcoming 20,000 Indian students per year — set during PM Modi's 2023 visit — is expected to be reached, making India the top source of international students in France.</span>
+            <span class="fr">L'objectif de la France d'accueillir 20 000 étudiants indiens par an — fixé lors de la visite du Premier ministre Modi en 2023 — devrait être atteint, faisant de l'Inde la première source d'étudiants internationaux en France.</span>
+          </p>
         </div>
       </div>
       <div class="ft-item">
         <span class="ft-year">2035+</span>
         <div>
-          <h5>Green hydrogen partnership</h5>
-          <p>Joint India-France green hydrogen projects are expected to be fully operational — producing clean fuel for both domestic use and export, contributing to both nations' net-zero targets.</p>
+          <h5><span class="en">Green hydrogen partnership</span><span class="fr">Partenariat pour l'hydrogène vert</span></h5>
+          <p>
+            <span class="en">Joint India-France green hydrogen projects are expected to be fully operational — producing clean fuel for both domestic use and export, contributing to both nations' net-zero targets.</span>
+            <span class="fr">Les projets conjoints Inde-France pour l'hydrogène vert devraient être pleinement opérationnels — produisant du carburant propre pour l'usage domestique et l'exportation, contribuant aux objectifs de neutralité carbone des deux nations.</span>
+          </p>
         </div>
       </div>
     </div>
 
     <div class="did-you-know">
-      <div class="dyk-label">   Saviez-vous?</div>
-      <p>At the 2023 Bastille Day celebrations in Paris, India was the Guest of Honour — and Indian Army, Navy, and Air Force contingents marched down the Champs-Élysées alongside French troops. An Indian Air Force Rafale flew in formation with French jets over Paris. It was one of the most visible symbols of how far the India-France relationship has come — and a glimpse of where it is headed.</p>
+      <div class="dyk-label">
+        <span class="en">Did You Know?</span><span class="fr">Le saviez-vous ?</span>
+      </div>
+      <p>
+        <span class="en">At the 2023 Bastille Day celebrations in Paris, India was the Guest of Honour — and Indian Army, Navy, and Air Force contingents marched down the Champs-Élysées alongside French troops. An Indian Air Force Rafale flew in formation with French jets over Paris. It was one of the most visible symbols of how far the India-France relationship has come — and a glimpse of where it is headed.</span>
+        <span class="fr">Lors des célébrations du 14 juillet 2023 à Paris, l'Inde était l'invitée d'honneur — et des contingents de l'armée, de la marine et de l'armée de l'air indiennes ont défilé sur les Champs-Élysées aux côtés des troupes françaises. Un Rafale de l'armée de l'air indienne a volé en formation avec des jets français au-dessus de Paris. C'était l'un des symboles les plus visibles du chemin parcouru par la relation Inde-France — et un aperçu de son avenir.</span>
+      </p>
     </div>
 
-    <!-- Closing quote -->
     <div class="closing-quote">
       <div class="quote-mark">"</div>
-      <blockquote>India and France are not just partners — we are friends who share the same values, the same vision for a multipolar world, and the same commitment to a rules-based international order.</blockquote>
+      <blockquote>
+        <span class="en">India and France are not just partners — we are friends who share the same values, the same vision for a multipolar world, and the same commitment to a rules-based international order.</span>
+        <span class="fr">L'Inde et la France ne sont pas seulement des partenaires — nous sommes des amis qui partagent les mêmes valeurs, la même vision d'un monde multipolaire et le même engagement envers un ordre international fondé sur des règles.</span>
+      </blockquote>
       <div class="quote-attr">— PM Narendra Modi, Paris, 2023</div>
     </div>
 
-    <!-- All topics -->
     <div class="all-topics">
-      <h4>Explore all topics</h4>
+      <h4><span class="en">Explore all topics</span><span class="fr">Explorer tous les sujets</span></h4>
       <div class="topics-grid">
-        <a href="history.html" class="topic-link">🏛️ History</a>
-        <a href="trade.html" class="topic-link">📦 Trade</a>
-        <a href="culture.html" class="topic-link">🎨 Culture</a>
-        <a href="defence.html" class="topic-link">✈️ Defence</a>
-        <a href="technology.html" class="topic-link">🚀 Technology</a>
-        <a href="education.html" class="topic-link">📚 Education</a>
+        <a href="history.html" class="topic-link">🏛️ <span class="en">History</span><span class="fr">Histoire</span></a>
+        <a href="trade.html" class="topic-link">📦 <span class="en">Trade</span><span class="fr">Commerce</span></a>
+        <a href="culture.html" class="topic-link">🎨 <span class="en">Culture</span><span class="fr">Culture</span></a>
+        <a href="defence.html" class="topic-link">✈️ <span class="en">Defence</span><span class="fr">Défense</span></a>
+        <a href="technology.html" class="topic-link">🚀 <span class="en">Technology</span><span class="fr">Technologie</span></a>
+        <a href="education.html" class="topic-link">📚 <span class="en">Education</span><span class="fr">Éducation</span></a>
       </div>
     </div>
 
     <div class="page-nav">
-      <a href="education.html">← Previous: Education</a>
-      <a href="index.html" class="home">Back to home →</a>
+      <a href="education.html">
+        <span class="en">← Previous: Education</span><span class="fr">← Précédent: Éducation</span>
+      </a>
+      <a href="index.html" class="home">
+        <span class="en">Back to home →</span><span class="fr">Retour à l'accueil →</span>
+      </a>
     </div>
 
   </div>
 
   <footer>
-    <p>Made by students · India–France Relations Project 2025</p>
+    <p>
+      <span class="en">Made by students · India–France Relations Project 2025</span>
+      <span class="fr">Réalisé par des étudiants · Projet Relations Inde-France 2025</span>
+    </p>
     <p style="color:#FF9933;font-weight:600">Inde &amp; France ♦</p>
   </footer>
   <div style="text-align:center;padding:48px 40px;background:#1a1a2e;color:#fff">
   <p style="font-size:36px;font-family:'Playfair Display',serif;margin-bottom:12px">Merci</p>
-  <p style="font-size:14px;color:#aaa;margin-bottom:4px">Thank you for exploring the India–France relationship with us.</p>
+  <p style="font-size:14px;color:#aaa;margin-bottom:4px">
+    <span class="en">Thank you for exploring the India–France relationship with us.</span>
+    <span class="fr">Merci d'avoir exploré la relation Inde-France avec nous.</span>
+  </p>
   <p style="font-size:13px;color:#666;font-style:italic">Fait avec ❤️ par des étudiants — Made with love by students</p>
   <div style="display:flex;justify-content:center;gap:0;width:48px;height:48px;border-radius:50%;overflow:hidden;margin:20px auto 0">
     <div style="flex:1;background:#002395"></div>
@@ -414,6 +529,29 @@
     <div style="flex:1;background:#ED2939"></div>
   </div>
 </div>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('.en').forEach(el => {
+        el.style.display = lang === 'en' ? 'inline' : 'none';
+      });
+      document.querySelectorAll('.fr').forEach(el => {
+        el.style.display = lang === 'fr' ? 'inline' : 'none';
+      });
+      const indiaFlag = document.getElementById('flag-india');
+      const franceFlag = document.getElementById('flag-france');
+      if (indiaFlag && franceFlag) {
+        indiaFlag.classList.toggle('active-lang', lang === 'en');
+        franceFlag.classList.toggle('active-lang', lang === 'fr');
+      }
+      localStorage.setItem('lang', lang);
+    }
+
+    window.addEventListener('DOMContentLoaded', function () {
+      const saved = localStorage.getItem('lang') || 'en';
+      setLang(saved);
+    });
+  </script>
 
 </body>
 </html>
